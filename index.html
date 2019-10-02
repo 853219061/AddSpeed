@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    
+    div{
+        height:100px;
+        width:100px;
+        position: absolute;
+        background-color:orange;
+    }
+
+    span{
+        /* height: 30px; */
+        box-sizing: border-box;
+        width : 200px;
+        border : 1px solid #000;
+        /* background-color:  red; */
+        font-size:20px;
+        line-height: 20px;
+        position: absolute;
+        left : 50%;
+        top:50%;
+        margin-top: -15px;
+        margin-left : -100px;
+        padding : 8px;
+    text-align: center;
+
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <span>点击小方块</span>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        var speed = 2;
+        var timer = null;
+
+        oDiv.onclick = function (){
+            startMove(this);
+        }
+
+        function startMove(dom){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                dom.style.left = dom.offsetLeft + speed + 'px';
+            },3)
+        }
+
+    </script>
+</body>
+</html>
