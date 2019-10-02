@@ -15,6 +15,7 @@
         width:100px;
         position: absolute;
         background-color:orange;
+        left : 100px;
     }
 
     span{
@@ -44,8 +45,9 @@
     <span>点击小方块</span>
     <script>
         var oDiv = document.getElementsByTagName('div')[0];
-        var speed = 2;
+        var speed = 20; //加速度
         var timer = null;
+        var subSpeed = -1;//加速度减小的量
 
         oDiv.onclick = function (){
             startMove(this);
@@ -53,9 +55,11 @@
 
         function startMove(dom){
             clearInterval(timer);
+           
             timer = setInterval(function(){
+                speed   +=subSpeed;
                 dom.style.left = dom.offsetLeft + speed + 'px';
-            },3)
+            },30)
         }
 
     </script>
